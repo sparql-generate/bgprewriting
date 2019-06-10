@@ -1,0 +1,11 @@
+PREFIX ex: <http://example.org/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?person ?car WHERE {
+  ?person a ex:PersonA ; 
+   ex:firstName "Jane" ;
+   ex:lastName "Doe" ;
+   ex:hasCar ?car .
+  ?car ex:hasFeature [ a ex:Feature ; ex:name "sun roof" ] .
+  ?car a ex:Car ; 
+   ex:hasSeats ?noSeats
+}

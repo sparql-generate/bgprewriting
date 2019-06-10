@@ -1,0 +1,24 @@
+PREFIX ex: <http://example.org/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+GENERATE {
+  
+  GENERATE {
+    ?x  a ex:PersonB ;
+      ex:name ?{ <http://example.org/concat.rqg>(?firstName, ?lastName) } .
+  } WHERE {
+    ?x a ex:PersonA ;
+      ex:firstName ?firstName ;
+      ex:lastName ?lastName .  
+  } .
+  GENERATE {
+    ?car a ex:FamilyCar
+  } WHERE {
+    ?car a ex:Car ; ex:hasSeats ?n
+    FILTER( ?n > 5 )
+  } .
+  GENERATE {
+    ex:sunRoof a owl:Thing
+  } WHERE {
+    ?x a ex:Feature ; ex:name "sun roof" 
+  } .
+} WHERE {}

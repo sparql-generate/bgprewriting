@@ -1,0 +1,4 @@
+PREFIX ex: <http://example.org/>
+FUNCTION ex:concat(?first, ?last){ 
+  CONCAT( ?first, ', ', ?last) 
+}
